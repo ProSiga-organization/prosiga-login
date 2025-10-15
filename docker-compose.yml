@@ -2,15 +2,15 @@ version: '3.8'
 services:
   auth-api:
     build: .
-    container_name: auth-prosiga
+    container_name: prosiga-login
     ports:
-      - "8001:8000" 
+      - "8001:8000"
     volumes:
-      - ./app:/app
+      - .:/app
     networks:
       - prosiga-net
 
 networks:
   prosiga-net:
     external:
-      name: prosiga-backend_default 
+      name: back-prosiga_default
