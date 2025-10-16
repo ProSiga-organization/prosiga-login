@@ -2,7 +2,7 @@ version: '3.8'
 services:
   auth-api:
     build: .
-    container_name: prosiga-login
+    container_name: auth-prosiga
     ports:
       - "8001:8000"
     volumes:
