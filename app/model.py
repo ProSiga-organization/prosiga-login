@@ -1,8 +1,7 @@
-
 from sqlalchemy import (
-    Column, Integer, String, Boolean, Enum, Date, Float, ForeignKey
+    Column, Integer, String, Enum
 )
-from sqlalchemy.orm import relationship
+
 from .database import Base
 import enum
 
@@ -37,12 +36,9 @@ class Usuario(Base):
 class Aluno(Usuario):
     __mapper_args__ = {"polymorphic_identity": "aluno"}
     matricula: str = Column(String(20), unique=True)
-    matriculas = relationship("Matricula", back_populates="aluno")
 
 class Professor(Usuario):
     __mapper_args__ = {"polymorphic_identity": "professor"}
-    turmas = relationship("Turma", back_populates="professor")
 
 class Coordenador(Usuario):
     __mapper_args__ = {"polymorphic_identity": "coordenador"}
-
