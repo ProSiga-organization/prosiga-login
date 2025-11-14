@@ -9,6 +9,8 @@ app = FastAPI(title="ProSiga Auth API", description="API dedicada para autentica
 
 origins = [
     "http://localhost:3000",
+    "http://0.0.0.0:3000",
+    "http://127.0.0.1:3000",
 ]
 
 app.add_middleware(
