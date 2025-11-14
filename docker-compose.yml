@@ -1,4 +1,9 @@
 version: '3.8'
+
+networks:
+  prosiga_net:
+    external: true
+
 services:
   auth-api:
     build: .
@@ -8,9 +13,6 @@ services:
     volumes:
       - .:/app
     networks:
-      - prosiga-net
-
-networks:
-  prosiga-net:
-    external:
-      name: back-prosiga_default
+      - prosiga_net
+    environment:
+      - DB_CONNECT_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres-prosiga:5432/${POSTGRES_DB}
