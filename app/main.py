@@ -7,12 +7,7 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="ProSiga Auth API", description="API dedicada para autenticação.")
 
-origins = [
-    "http://localhost:3000",
-    "http://0.0.0.0:3000",
-    "http://127.0.0.1:3000",
-    "https://prosiga-frontend.vercel.app",
-]
+origins = ["*"]
 
 # Adiciona o Middleware com suporte a preview deployments da Vercel
 app.add_middleware(
